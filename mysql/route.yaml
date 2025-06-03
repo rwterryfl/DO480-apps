@@ -12,4 +12,6 @@ spec:
     kind: Service
     name: frontend
     weight: 100
+  port:
+    targetPort: 8080
   wildcardPolicy: None
