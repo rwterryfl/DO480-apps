@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mysql
-  annotations:
-    openshift.io/node-selector: ""
-  labels:
-    openshift.io/cluster-monitoring: "true"
-    argocd.argoproj.io/managed-by: openshift-gitops
