@@ -1,0 +1,24 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: install-openshift-gitops
+policyDefaults:
+  namespace: acm-policies
+  placement:
+    labelSelector:
+      matchExpressions:
+        - key: cluster.open-cluster-management.io/clusterset
+          operator: In
+          values:
+            - "gitops-demo"
+  remediationAction: enforce
+policies:
+  - name: create-openshift-gitops-namespace
+    manifests:
+      - path: openshift-gitops-namespace.yaml
+  - name: create-openshift-gitops-operator-group
+    manifests:
+      - path: openshift-gitops-operator-group.yaml  
+  - name: install-openshift-gitops
+    manifests:
+      - path: openshift-gitops-subscription.yaml
